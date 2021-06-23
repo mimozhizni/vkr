@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user_info.profile.first_name }}{% endblock %}
+
+{% block page %}
+    <div class="text-page page-content">
+        <div class="panel-body">
+            <form method="get" >
+
+                <img class="img-rounded"
+                    src="../media/{{ request.user.profile.photo.image }}" align="left" width="30%"
+                height="auto"/>
+                <p> Username:  {{ request.user.username }}</p>
+                <p> First name: {{ request.user.first_name }}</p>
+                <p> Last name: {{ request.user.last_name }}</p>
+                <p> Birth date: {{ request.user.profile.date_of_birth }}</p>
+                <p><a href="{% url 'edit' %}"> Change profile</a></p>
+                <p><a href="{% url 'password_change' %}"> Change password</a></p>
+            </form>
+        </div>
+    </div>
+{% endblock %}

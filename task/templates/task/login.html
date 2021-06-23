@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block page %}
+    <div class="text-page page-content">
+        <h1 class="text-page">Log-in</h1>
+        {% if form.errors %}
+            <p class="text-page">
+                Your username and password didn't match.
+                Please try again.
+            </p>
+        {% else %}
+            <p class="text-page">Please, use the following form to log-in:</p>
+        {% endif %}
+        <div class="login-form text-page">
+            <form action="{% url 'login' %}" method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="hidden" name="next" value= "{% url 'dashboard' %}"/>
+                <p><input type="submit" value="Log-in" class="btn-all"></p>
+            </form>
+        </div>
+        <br>
+        <div class="text-page">
+            <p> If you are not registered, please enter  <a href="{% url 'register' %}"> the registration form </a></p>
+        </div>
+    </div>
+{% endblock %}

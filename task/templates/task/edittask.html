@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Edit your task{% endblock %}
+
+{% block page %}
+    <div class="text-page page-content">
+    <h1>Edit your task</h1>
+    <p>You can edit your account using the following form:</p>
+    <form method="post" enctype="multipart/form-data">
+        {{ task_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Save changes"></p>
+    </form>
+        </div>
+{% endblock %}

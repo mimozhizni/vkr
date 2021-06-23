@@ -1,0 +1,142 @@
+
+body{
+  background-color: #1c2025;
+  overflow: auto;
+}
+
+
+.table{
+    border-color: #e80000;
+    padding: 3%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+}
+
+.message-content{
+    text-align: center;
+    padding-top: 20%;
+}
+.forms{
+    text-align: center;
+    color: #b0b0b0;
+
+}
+.mainwind{
+    padding-top: 20%;
+}
+
+.text-header {
+  color: #426aa6;
+       top: 3%;
+    left: 14%;
+}
+
+.text-page{
+    color: #b0b0b0;
+}
+
+.text-table{
+    color: #313740;
+}
+
+.text-cells{
+    color: #1c2025;
+}
+
+.text-but{
+    color: #b0b0b0;
+}
+
+h2{
+  color: #494F49;
+
+}
+
+.page-content{
+    text-align:center;
+    padding: 10%;
+}
+.logo {
+  background-color: #bdcbe0;
+  position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 3%;
+  left: 91%;
+  border-radius: 50%;
+}
+.btn-at{
+    top: 29%;
+    left: 2%;
+    background-color: #545454;
+    position: absolute;
+    border-radius: 5%;
+    padding:0.5%;
+        font-size:14pt;
+}
+.btn-profile{
+    top: 29%;
+    left: 40%;
+
+}
+
+.btn-cur{
+    top: 29%;
+    left: 56%;
+}
+.btn-fin{
+        top: 29%;
+    left: 70%;
+}
+.btn-header{
+    background-color: #313740;
+    padding: 0.5%;
+    position: absolute;
+    font-size:14pt;
+}
+a{
+    color:#b0b0b0;
+}
+.btn-all {
+    color: #515b68;
+    background-color: #3a414b;
+    position: absolute;
+}
+
+.btn-all:hover,
+.btn-all:focus {
+  color: white;
+  background-color: #3a414b;
+}
+
+.btn-reg {
+    top: 11%;
+    left: 77%;
+    width: 13%;
+    height: 40%;
+}
+
+/* SIDE BAR */
+.sidebar {
+     height: 12%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background-color: #313740;
+
+    overflow: auto;
+}
+
+.wrapper {
+    width: 300px;
+    height: 300px;
+    border: 5px solid #515151;
+}
+.exmp3 img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block style %}
+    .table{border-color: #e80000;
+    padding: 3%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+}
+.cells-shadow {
+    background: #bdcbe0; /* Цвет фона */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
+
+{% endblock %}
+{% block title %}Tasks{% endblock %}
+
+{% block page %}
+    <div class="text-page page-content">
+     <a href="{% url 'current_tasks'%}"  class=" btn " vlink="#bdcbe0" text-align="top">Cell's view</a>
+         {% if count == 0 %}
+            <h> You don't have current tasks. Add any task!</h>
+
+        {% else %}
+            <table class=" table">
+                <tbody>
+
+                {% for task in tasks %}
+                    <td></td>
+                    <tr>
+                    <td class="cells-shadow text-cells"> <p><a href="{% url "edit-task" task.id_task%}">{{ task.name }}</a></p></td>
+                       <td class="cells-shadow text-cells"> <p>{{ task.short_description }}</p></td>
+                       <td class="cells-shadow text-cells"> <p>{{ task.deadline }}</p></td>
+                       <td class="cells-shadow text-cells"> <p><input type="checkbox" name="{{task.id}}" value="{{ task.done }}">Done</p></td>
+{#                    <a href="{% url 'one-picture' art_picture.id%}" title="{{art_picture.name}}" text-align="top">#}
+{#                             </a>#}
+                    </tr>
+
+
+                {% endfor %}
+
+            </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

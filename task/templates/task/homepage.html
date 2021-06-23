@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Task {% endblock %}
+{% block sidebar %}
+    <div class="sidebar">
+        <button type="button" class="btn btn-dark"> <a href="{% url 'login' %}">Регистрация</a></button>
+        <div class="logo">
+            <a href="static/img/testt.png" ></a>
+    {#         <img class = "img-rounded" src="{{ MEDIA_URL }}{{ picture.image }}" style="width:100%; text-align: center;">#}
+        </div>
+    </div>
+{% endblock %}
+{% block page %}
+    <div class ="text-page">
+      <h2 align="center"> Почему именно этот сайт?</h2>
+    </div>
+{% endblock %}

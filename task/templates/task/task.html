@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block style %}
+    .table{border-color: #e80000;
+    padding: 3%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+}
+.cells-shadow {
+    background: #bdcbe0; /* Цвет фона */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
+
+{% endblock %}
+{% block title %}{{ task.name }}{% endblock %}
+
+{% block page %}
+    <div class="text-page page-content">
+        <p><a href="{% url "edit-task" task.id_task %}">Edit task</a></p>
+        <p>{{ task.name }}</p>
+        <p>{{ task.short_description }}</p>
+        <p>{{ task.deadline }}</p>
+        {% if count == 0 %}
+            <h> You don't have any step. If you need, you can add some step.</h>
+        {% else %}
+        {% for step in steps %}
+            <td></td>
+                    <td class="cells-shadow text-cells">
+                        <p><a href="{% url "edit-task" step.id_step %}">{{ step.name }}</a></p>
+                        <p>{{ step.short_description }}</p>
+                        <form action="" method="post">
+
+                        </form>
+                    </td>
+                    <td></td>
+
+        {% endfor%}
+    {% endif %}
+    </div>
+{% endblock %}

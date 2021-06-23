@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard {% endblock %}
+
+{% block style %}
+    .table
+    {border-color: #e80000;
+    padding: 3%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    }
+    .cells-shadow {
+    background: #515b68; /* Цвет фона */
+     color: #bdcbe0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+    }
+
+    .btn-add {
+    left: 5%;
+    top: 15%;
+    padding: 1%;
+     color: #bdcbe0;
+    background-color: #515b68;
+    position: absolute;
+    }
+
+{% endblock %}
+
+{% block page %}
+     <div class="text-page page-content">
+          <a href="{% url 'add-theme'%}"  class=" btn btn-add" vlink="#bdcbe0" text-align="top">Add theme</a>
+
+
+    <h1>Dashboard</h1>
+    <p>Welcome to your dashboard.</p>
+      {% if count == 0 %}
+            <h> You don't have theme. Add any theme!</h>
+
+        {% else %}
+        <table class="table">
+            <tbody>
+            <tr>
+                {% for theme in themes %}
+                    <td></td>
+                    <td class="cells-shadow text-cells">
+                   <a href="{% url 'theme' theme.id_theme%}" title="{{theme.name}}" text-align="top">{{ theme.name }}</a>
+                    </td>
+                    <td></td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+     {% endif %}
+    </div>
+{% endblock %}

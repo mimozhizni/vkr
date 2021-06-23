@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block style %}
+    .table{border-color: #e80000;
+    padding: 3%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+}
+.cells-shadow {
+    background: #bdcbe0; /* Цвет фона */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
+
+{% endblock %}
+{% block title %}Tasks{% endblock %}
+
+{% block page %}
+    <div class="text-page page-content">
+        {% if count == 0 %}
+            <h> You don't have finished tasks. Finish any task!</h>
+
+        {% else %}
+            <table class=" table">
+                <tbody>
+                <tr>
+                {% for task in tasks %}
+                    <td></td>
+                    <td class="cells-shadow text-cells">
+                        <p><a href="{% url "edit-task" task.id_task %}">{{ task.name }}</a></p>
+                        <p>{{ task.short_description }}</p>
+                        <p>{{ task.deadline }}</p>
+                        <p><input type="checkbox" name="{{task.id}}" checked="{{task.done}}">Done</p>
+{#                    <a href="{% url 'one-picture' art_picture.id%}" title="{{art_picture.name}}" text-align="top">#}
+{#                             </a>#}
+                    </td>
+                    <td></td>
+
+                {% endfor %}
+                </tr>
+            </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

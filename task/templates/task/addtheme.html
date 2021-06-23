@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Add new theme{% endblock %}
+
+{% block page %}
+     <div class="text-page page-content">
+    <h1>Add theme</h1>
+{#         {% for theme in themes %}#}
+{##}
+{#                <a href="{% url 'one-theme' theme.id%}" title="{{theme.name}}" text-align="top">{{ theme.name }}</a>#}
+{##}
+{#        {% endfor %}#}
+        <form method="POST" enctype="multipart/form-data">
+            {{ theme_form.as_p }}
+            {% csrf_token %}
+            {{theme_form.get_color_display}}
+            <button type="submit" class="btn btn-red">Add</button>
+        </form>
+    </div>
+{% endblock %}

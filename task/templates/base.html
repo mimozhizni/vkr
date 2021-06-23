@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <style>{% block style %}{% endblock %} </style>
+    <title>{% block title %}{% endblock %}</title>
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>#}
+</head>
+<body>
+        <div id="header" class="sidebar text-header ">
+            {% if request.user.is_authenticated %}
+                <ul class="menu">
+                <div link="#ffcc00" vlink="#426aa6" alink="#ff0000">
+                    <a href="{% url "profile-user" %}"><img  src="../media/{{ request.user.profile.photo.image }}" class="logo exmp3"></a>
+                    <a href="{% url "add_tasks" %}" class="btn-at">Add task</a>
+                    <a href="{% url "dashboard" %}" class="btn-header btn-profile" vlink="#426aa6" alink="#ff0000">My dashboard</a>
+                    <a href="{% url "current_tasks" %}" class="btn-header btn-cur" vlink="#426aa6" alink="#ff0000">Current task</a>
+                    <a href="{% url "finished_tasks" %}" class="btn-header btn-fin" vlink="#426aa6" alink="#ff0000">Finished task</a>
+
+                 </div>
+                </ul>
+            {% endif %}
+            <span >
+                {% if request.user.is_authenticated %}
+                    <h4 class="user btn-header text-header">Hello {{ request.user.first_name }},
+                        <a href="{% url "logout" %}">Logout</a></h4>
+                {% else %}
+                    <a href="{% url "profile-user" %}"><img src="../../media/users/default.png" class="logo exmp3"></a>
+                    <a href="{% url "login" %}" class="user btn-header text-header">Log-in</a>
+                {% endif %}
+            </span>
+        </div>
+    {% if messages %}<ul class="messages text-page message-content">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="#" class="close">✖</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% block page %}
+
+    {% endblock %}
+</body>
+</html>
